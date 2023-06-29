@@ -1,0 +1,35 @@
+body {
+    background-color: grey;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+    font-family: sans-serif;  
+    text-align: center;
+}
+
+.container{
+    height: 50vh;
+    width: auto;
+}
+
+form {
+    height: 100%;
+    font-size: 25px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+input {
+    height: 30px;
+}
+
+#button {
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    padding: 15px 32px;
+    font-size: 16px;
+    height: auto;
+}
+

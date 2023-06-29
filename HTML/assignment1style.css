@@ -1,0 +1,53 @@
+body {
+    background-color: rosybrown;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 70px;
+    font-family: sans-serif;  
+}
+
+span{
+    font-weight: bold; 
+    font-size: 40px;
+}
+
+h2{
+    text-align: center;
+    font-size: 30px;
+}
+
+#recipeName{
+    text-align: center;
+}
+
+img {
+    width: 400px;
+    height: 500px;
+}
+
+.ingredients {
+    font-size: 20px;
+    display: inline-block;
+    padding: 2%;
+}
+
+.instructions {
+    font-size: 20px;
+    text-align: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+    padding: 5px;
+    text-align: center;
+}
+
+.image {
+    display: inline-block;
+    padding: 2%;
+}
+
+
