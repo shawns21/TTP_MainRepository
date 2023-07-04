@@ -12,7 +12,7 @@ body{
     font-family: myFont;
     font-style: normal;
     font-weight: normal;
-    src: url(/Project1/CSS/FuturaStdCondensed.woff);
+    src: url(/CSS/FuturaStdCondensed.woff);
 }
 
 #intro{
@@ -63,20 +63,19 @@ body{
     flex-wrap: wrap;
     height: 60vh;
     justify-content: center; 
-    align-items: center;
+    align-items: center; 
 }
 
 .info{
-    flex: 1 1 calc(33.33% - 20px);
     box-sizing: border-box;
     text-align: center;
     margin: 10px;
     height: 50%;
-    margin-right: 60px;
+    margin-right: 150px;
 }
 
 .info p{
-    font-size: 1.9vw;
+    font-size: 1.8vw;
     color: #ffffff;
 }
 
@@ -170,17 +169,16 @@ footer p{
   .posterSection {
     height: auto;
   }
-  .infoSection{
-    flex-direction: column;
-  }
   .info{
     margin-right: 0;
+    margin-top: 20px;
+    width: 100%;
   }
-  .info p{
-    font-size: 3.5vw;
-}
-.poster p {
-    font-size: 6vw;
-}
+  .info p {
+    font-size: 150%;
+  }
+  .poster p {
+    font-size: 200%;
+  }
 }
 
