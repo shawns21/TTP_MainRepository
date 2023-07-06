@@ -1,0 +1,11 @@
+body{
+    background-color: green;
+    color: white;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#timer{
+    font-size: 100px;
+    font-weight: bold;
+}
