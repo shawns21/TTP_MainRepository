@@ -1,3 +1,6 @@
 [submodule "dom-project-2"]
 	path = dom-project-2
 	url = git@github.com:shawns21/dom-project-2.git
+[submodule "pokedexWebsite"]
+	path = pokedex-boilerplate
+	url = git@github.com:shawns21/pokedex-boilerplate.git
