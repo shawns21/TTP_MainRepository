@@ -7,3 +7,6 @@
 [submodule "pokedex-boilerplate-v2"]
 	path = pokedex-boilerplate-v2
 	url = git@github.com:shawns21/pokedex-boilerplate-v2.git
+[submodule "pokedex-boilerplate-v3"]
+	path = pokedex-boilerplate-v3
+	url = git@github.com:shawns21/pokedex-boilerplate-v3.git
