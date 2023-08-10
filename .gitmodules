@@ -10,3 +10,6 @@
 [submodule "pokedex-boilerplate-v3"]
 	path = pokedex-boilerplate-v3
 	url = git@github.com:shawns21/pokedex-boilerplate-v3.git
+[submodule "wizarding-schools-network"]
+	path = wizarding-schools-network
+	url = git@github.com:shawns21/wizarding-schools-network.git
