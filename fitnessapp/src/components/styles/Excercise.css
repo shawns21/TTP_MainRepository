@@ -1,0 +1,5 @@
+.seperator {
+  border-top: 1px solid black; /* Add a black border line at the top of the separator */
+  margin-top: 20px; /* Add some space above the separator */
+  padding-top: 10px; /* Add some padding above the separator */
+}
