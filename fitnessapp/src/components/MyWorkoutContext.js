@@ -8,7 +8,6 @@ export const MyWorkoutProvider = ({ children }) => {
 
   const [error, setError] = useState('');
 
-  // Load saved exercises from localStorage on component mount
   useEffect(() => {
     const savedExercisesFromStorage = JSON.parse(localStorage.getItem('savedExercises')) || [];
     setSavedExercises(savedExercisesFromStorage);
@@ -28,7 +27,8 @@ export const MyWorkoutProvider = ({ children }) => {
   });
 
   if (!isDuplicate) {
-    const updatedExercises = [...savedExercises, exercise];
+    const updatedExercise = {...exercise, sets: "", reps: ""};
+    const updatedExercises = [...savedExercises, updatedExercise];
     localStorage.setItem('savedExercises', JSON.stringify(updatedExercises));
     setSavedExercises(updatedExercises);
     setError('');

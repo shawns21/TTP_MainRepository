@@ -49,11 +49,44 @@ const BeginnerWorkout = () => {
       <p>Beginner Routine</p>
       {beginnerData.map((exercise, index) => (
         <div key={index}>
-          {index === 0 && <p>Legs</p>}
-          {index === 1 && <p>Chest</p>}
-          {index === 2 && <p>Back</p>}
-          {index === 3 && <p>Arms</p>}
-          <ExerciseView exercise={exercise} />
+          {index === 0 && 
+          <div>
+            <p>Legs</p>
+            <div>
+              <ExerciseView exercise={exercise}></ExerciseView>
+            </div>
+            <p>Reps: 4</p>
+            <p>Sets per Rep: 10-12</p>
+          </div>
+          }
+          {index === 1 && 
+           <div>
+            <p>Chest</p>
+            <div>
+              <ExerciseView exercise={exercise}></ExerciseView>
+            </div>
+            <p>Reps: 3</p>
+            <p>Sets per Rep: 10-12</p>
+          </div>}
+          {index === 2 && 
+           <div>
+            <p>Back</p>
+            <div>
+              <ExerciseView exercise={exercise}></ExerciseView>
+            </div>
+            <p>Reps: 5</p>
+            <p>Sets per Rep: 12-15</p>
+          </div>}
+          {index === 3 && 
+           <div>
+            <p>Arms</p>
+            <div>
+              <ExerciseView exercise={exercise}></ExerciseView>
+            </div>
+            <p>Reps: 4</p>
+            <p>Sets per Rep: 10-12</p>
+          </div>}
+         
         </div>
       ))}
     </div>
