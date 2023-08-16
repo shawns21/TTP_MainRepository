@@ -26,7 +26,12 @@ const Exercises = () => {
     };
 
     updateList(exerciseData);
+    resetExerciseDetails();
   }
+
+  const resetExerciseDetails = () => {
+    setShowDetails(new Array(exerciseList.length).fill(false));
+  };
 
   const addIntoWorkout = (exercise) => {
     addExercise(exercise);
