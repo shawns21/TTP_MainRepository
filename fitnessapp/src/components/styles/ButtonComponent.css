@@ -1,17 +1,32 @@
-.selected {
-  background-color: green; /* You can customize the styling here */
-  color: white; /* Text color for better visibility */
+.button-group {
+  margin-bottom: 20px;
 }
 
-/* Basic styling for the buttons */
-button {
-  background-color: white;
-  border: 1px solid black;
-  padding: 5px 10px;
-  margin: 5px;
+.filter-title {
   cursor: pointer;
+  font-weight: bold;
 }
 
-button:hover {
-  background-color: lightgray;
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.button {
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background-color: #e0e0e0;
+}
+
+.selected {
+  background-color: #007bff;
+  color: white;
 }

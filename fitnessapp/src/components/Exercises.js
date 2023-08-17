@@ -7,7 +7,7 @@ import ButtonComponent from './ButtonComponent';
 
 const Exercises = () => {
   const { exerciseList, updateList } = useExerciseContext();
-  const { addExercise, error } = useMyWorkoutContext();
+  const { addExercise } = useMyWorkoutContext();
   const [searchTerm, setSearchTerm] = useState("");
   const [showDetails, setShowDetails] = useState([]);
   const [exerciseDifficulty, setExerciseDifficulty] = useState("");
@@ -15,6 +15,7 @@ const Exercises = () => {
   const [exerciseType, setExerciseType] = useState("");
 
   const searchExercise = async () => {
+
     const exerciseData = {
       method: 'GET',
       url: 'https://exercises-by-api-ninjas.p.rapidapi.com/v1/exercises',
@@ -33,14 +34,20 @@ const Exercises = () => {
     setShowDetails(new Array(exerciseList.length).fill(false));
   };
 
+  const resetParams = () => {
+    setExerciseDifficulty("");
+    setExerciseMuscle("");
+    setExerciseType("");
+  }
+
   const addIntoWorkout = (exercise) => {
     addExercise(exercise);
   };
 
   const toggleDetails = (index) => {
-    setShowDetails(prevState => {
+    setShowDetails((prevState) => {
       const updatedDetails = [...prevState];
-      updatedDetails[index] = !prevState[index];
+      updatedDetails[index] = !updatedDetails[index];
       return updatedDetails;
     });
   };
@@ -57,31 +64,55 @@ const Exercises = () => {
     setExerciseType(type);
   }
 
-
   return (
-    <div>  
-      <input value={searchTerm} onChange={(event) => setSearchTerm(event.target.value)}></input>
-      <button onClick={searchExercise}>Search</button>
-      <div> 
-        <ButtonComponent handleExerciseDifficulty={handleExerciseDifficulty} handleExerciseMuscle={handleExerciseMuscle} handleExerciseType={handleExerciseType} exerciseDifficulty={exerciseDifficulty} exerciseMuscle={exerciseMuscle} exerciseType={exerciseType}></ButtonComponent>
+    <div className="exercises-container">
+      <div className="search-bar">
+        <input
+          className="search-input"
+          type="text"
+          value={searchTerm}
+          onChange={(event) => setSearchTerm(event.target.value)}
+          placeholder="Search for exercises"
+        />
+        <button className="search-button" onClick={searchExercise}>
+          Search
+        </button>
       </div>
-      {exerciseList.map((exercise, index) => 
-          <div key={index}>
-            <p>{exercise.name}</p>
-            <button onClick={() => toggleDetails(index)}>
+      <div className="filter-section">
+        <ButtonComponent
+          handleExerciseDifficulty={handleExerciseDifficulty}
+          handleExerciseMuscle={handleExerciseMuscle}
+          handleExerciseType={handleExerciseType}
+          exerciseDifficulty={exerciseDifficulty}
+          exerciseMuscle={exerciseMuscle}
+          exerciseType={exerciseType}
+        />
+      </div>
+      <div className="exercise-list">
+        {exerciseList.map((exercise, index) => (
+          <div className="exercise-entry" key={index}>
+            <p className="exercise-name">{exercise.name}</p>
+            <button
+              className={`details-button ${
+                showDetails[index] ? 'hide-button' : 'view-button'
+              }`}
+              onClick={() => toggleDetails(index)}
+            >
               {showDetails[index] ? "Hide Details" : "View Details"}
             </button>
             {showDetails[index] && (
-            <div>
-              <ExerciseDetail exercise={exercise}></ExerciseDetail>
-            </div>
+              <div className="details-section">
+                <ExerciseDetail exercise={exercise} />
+              </div>
             )}
-            <button onClick={() => addIntoWorkout(exercise)}>Add workout</button>
-            <p>{error}</p>
             <div className='seperator'></div>
+            <button className="add-button" onClick={() => addIntoWorkout(exercise)}>
+              Add workout
+            </button>
+            <div className="seperator"></div>
           </div>
-      )}  
-      
+        ))}
+      </div>
     </div>
   );
 };

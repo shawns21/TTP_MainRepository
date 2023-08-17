@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import './styles/ButtonComponent.css';
 
 const ButtonComponent = ({ handleExerciseDifficulty, handleExerciseMuscle, handleExerciseType, exerciseDifficulty, exerciseMuscle, exerciseType }) => {
@@ -7,6 +7,23 @@ const ButtonComponent = ({ handleExerciseDifficulty, handleExerciseMuscle, handl
   const difficultyOptions = ['beginner', 'intermediate', 'expert'];
 
   const typeOptions = ['cardio', 'olympic_weightlifting', 'plyometrics', 'powerlifting', 'strength', 'stretching', 'strongman'];
+
+  const [showDifficultyOptions, setShowDifficultyOptions] = useState(true);
+  const [showMuscleOptions, setShowMuscleOptions] = useState(true);
+  const [showTypeOptions, setShowTypeOptions] = useState(true);
+
+
+  const toggleDifficultyOptions = () => {
+    setShowDifficultyOptions(!showDifficultyOptions);
+  };
+
+  const toggleMuscleOptions = () => {
+    setShowMuscleOptions(!showMuscleOptions);
+  };
+
+  const toggleTypeOptions = () => {
+    setShowTypeOptions(!showTypeOptions);
+  };
 
   const toggleMuscleOption = (muscle) => {
     if (exerciseMuscle === muscle) {
@@ -26,52 +43,79 @@ const ButtonComponent = ({ handleExerciseDifficulty, handleExerciseMuscle, handl
 
   const toggleTypeOption = (type) => {
     if (exerciseType === type) {
-        handleExerciseType("");
+      handleExerciseType("");
     } else {
-        handleExerciseType(type);
+      handleExerciseType(type);
     }
   };
 
-  return (
-    <div>  
-      <div style={{ backgroundColor: "red"}}>
-       <p>Difficulty</p>
-        {difficultyOptions.map(difficulty => (
-          <button
-            key={difficulty}
-            className={exerciseDifficulty === difficulty ? "selected" : ""}
-            onClick={() => toggleDifficultyOption(difficulty)}
-          >
-            {difficulty}
-          </button>
-        ))}
+   return (
+    <div className="button-component">
+      <div className="button-group">
+        <p onClick={toggleDifficultyOptions} className="filter-title">
+          Difficulty
+        </p>
+        {showDifficultyOptions && (
+          <div className="options">
+            {difficultyOptions.map(difficulty => (
+              <button
+                key={difficulty}
+                className={
+                  exerciseDifficulty === difficulty
+                    ? "button selected"
+                    : "button"
+                }
+                onClick={() => toggleDifficultyOption(difficulty)}
+              >
+                {difficulty}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
-      <div style={{ backgroundColor: "blue" }}>
-        <p>Muscle</p>
-        {muscleOptions.map(muscle => (
-          <button
-            key={muscle}
-            className={exerciseMuscle === muscle ? "selected" : ""}
-            onClick={() => toggleMuscleOption(muscle)}
-          >
-            {muscle}
-          </button>
-        ))}
+      <div className="button-group">
+        <p onClick={toggleMuscleOptions} className="filter-title">
+          Muscle
+        </p>
+        {showMuscleOptions && (
+          <div className="options">
+            {muscleOptions.map(muscle => (
+              <button
+                key={muscle}
+                className={
+                  exerciseMuscle === muscle ? "button selected" : "button"
+                }
+                onClick={() => toggleMuscleOption(muscle)}
+              >
+                {muscle}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
-      <div style={{ backgroundColor: "green"}}>
-       <p>Type</p>
-        {typeOptions.map(type => (
-          <button
-            key={type}
-            className={exerciseType === type ? "selected" : ""}
-            onClick={() => toggleTypeOption(type)}
-          >
-            {type}
-          </button>
-        ))}
+      <div className="button-group">
+        <p onClick={toggleTypeOptions} className="filter-title">
+          Type
+        </p>
+        {showTypeOptions && (
+          <div className="options">
+            {typeOptions.map(type => (
+              <button
+                key={type}
+                className={
+                  exerciseType === type ? "button selected" : "button"
+                }
+                onClick={() => toggleTypeOption(type)}
+              >
+                {type}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
 export default ButtonComponent;
+

@@ -1,14 +1,16 @@
 import React from "react";
+import './styles/ExerciseView.css'; // Import the CSS file for styling
 
 const ExerciseView = ({ exercise }) => {
     return (
-        <div style={{backgroundColor: 'red'}}>
-            <p>{exercise.name}</p>
-            <p>Equipment: {exercise.equipment}</p>
-            <p>Instruction: {exercise.instructions}</p>
+        <div className="exercise-view">
+            <p className="exercise-name">{exercise.name}</p>
+            <p className="exercise-detail">Equipment: {exercise.equipment}</p>
+            <p className="exercise-detail">Instructions: {exercise.instructions}</p>
         </div>
     );
 }
 
 export default ExerciseView;
+
 

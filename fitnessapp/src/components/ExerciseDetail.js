@@ -1,14 +1,26 @@
-import React from "react";
+import React from 'react';
+import './styles/ExerciseDetail.css'; // Import the CSS file for styling
 
 const ExerciseDetail = ({ exercise }) => {
-    return (
-        <div style={{backgroundColor: 'blue'}}>
-            {exercise.equipment == "other" ? "" : <p>Equipment: {exercise.equipment}</p>}
-            <p>Muscle: {exercise.muscle}</p>
-            <p>Difficulty: {exercise.difficulty}</p>
-            <p>Instruction: {exercise.instructions}</p>
-        </div>
-    );
-}
+   return (
+    <div className="exercise-detail">
+      {exercise.equipment !== 'other' && (
+        <p className="exercise-detail-item">
+          <span className="detail-label">Equipment:</span> {exercise.equipment}
+        </p>
+      )}
+      <p className="exercise-detail-item">
+        <span className="detail-label">Muscle:</span> {exercise.muscle}
+      </p>
+      <p className="exercise-detail-item">
+        <span className="detail-label">Difficulty:</span> {exercise.difficulty}
+      </p>
+      <p className="exercise-detail-item">
+        <span className="detail-label">Instruction:</span> {exercise.instructions}
+      </p>
+    </div>
+  );
+};
 
 export default ExerciseDetail;
+
