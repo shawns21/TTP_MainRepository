@@ -72,7 +72,7 @@ const Exercises = () => {
           type="text"
           value={searchTerm}
           onChange={(event) => setSearchTerm(event.target.value)}
-          placeholder="Search for exercises"
+          placeholder="Enter a keyword, such as 'push' or 'neck'"
         />
         <button className="search-button" onClick={searchExercise}>
           Search
